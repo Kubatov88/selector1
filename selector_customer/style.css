@@ -1,0 +1,102 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: "Roboto", sans-serif;
+    background: #f7f6ff;
+  }
+  
+  .container {
+    display: flex;
+    padding-left: 40px;
+    padding-top: 30px;
+    gap: 100px;
+  }
+  
+  .select-box {
+    display: flex;
+    width: 200px;
+    flex-direction: column;
+  }
+  
+  .select-box .options-container {
+    background: darkgrey;
+    color: black;
+    max-height: 0;
+    width: 100%;
+    opacity: 0;
+    transition: all 0.4s;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    overflow: hidden;
+    order:1;
+  }
+  
+  .selected  {
+    background: darkgray;
+    border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
+    color: black;
+    position: relative;
+    border-bottom: 1px solid silver;
+    order: 0;
+  }
+  
+  
+  .selected::after {
+ 
+    background-size: contain;
+    background-repeat: no-repeat;
+  
+    position: absolute;
+    height: 100%;
+    width: 32px;
+    right: 10px;
+    top: 5px;
+  
+    transition: all 0.4s;
+  }
+  
+  .select-box .options-container.active {
+    max-height: 240px;
+    opacity: 1;
+    overflow-y: scroll;
+  }
+  
+  .select-box .options-container.active + .selected::after {
+    transform: rotateX(180deg);
+    top: -6px;
+  }
+  
+  .select-box .options-container::-webkit-scrollbar {
+    background: darkgray;
+    width: 0;
+    border-radius: 0 8px 8px 0;
+  }
+  
+  .select-box .options-container::-webkit-scrollbar-thumb {
+    background: darkgray;
+  
+  }
+  
+  .select-box .option,
+  .selected {
+    padding: 12px 24px;
+    cursor: pointer;
+  }
+  
+  .select-box .option:hover {
+    background: gray;
+  }
+  
+  .select-box label {
+    cursor: pointer;
+  }
+  
+  .select-box .option .radio {
+    display: none;
+  }
+  
